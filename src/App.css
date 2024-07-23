@@ -1,0 +1,204 @@
+#root {
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: #f3f3f3;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 3px 3px 7.5px rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-title {
+  color: black;
+  font-weight: 500;
+  padding: 1.5rem 0 0 1.25rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.search-bar {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  text-indent: 0.5rem;
+  color: black;
+  font-weight: 300;
+  font-size: 1rem;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 8px;
+}
+
+.new-folder-button {
+  translate: 42%;
+  margin-bottom: 1rem;
+  transition: background-color 300ms;
+  border: none;
+}
+
+.new-folder-button > i {
+  padding-right: 0.5rem;
+}
+
+
+.new-folder-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(149, 66, 226);
+  border: none;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a > i {
+  display: none;
+}
+
+.sidebar a:hover .fa-pen-to-square {
+  display: block;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+/* Page content */
+div.content {
+  min-height: 100vh;
+  margin-left: 300px;
+  padding: 1.5rem 2rem;
+}
+
+.notes-content-title {
+  color: white;
+  font-weight: 500;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+/* .new-note-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 300ms;
+  border: none;
+}
+
+.new-note-button > i {
+  margin-right: 0.5rem;
+}
+
+.new-note-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(65, 163, 65);
+  border: none;
+} */
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+@media screen and (max-width: 900) {
+  .notes-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .notes-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.note {
+  background-color: #f3f3f3;
+  backdrop-filter: blur(5px);
+  box-shadow: inset -6px -4px 2px rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1.5px solid rgba(255, 255, 255, 0.326);
+  color: black;
+  padding: 1rem;
+  min-height: 8.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.note-footer .fa-pen-to-square:hover {
+  cursor: pointer;
+  filter: invert(41%) sepia(63%) saturate(5333%) hue-rotate(275deg) brightness(88%) contrast(95%);
+}
+.fa-square-check:hover {
+  cursor: pointer;
+  filter: invert(53%) sepia(38%) saturate(875%) hue-rotate(70deg) brightness(92%) contrast(87%);
+}
+.fa-trash-can:hover {
+  cursor: pointer;
+  filter: invert(19%) sepia(31%) saturate(5440%) hue-rotate(343deg) brightness(115%) contrast(103%);
+}
+
+.note textarea {
+  font-family: "Montserrat", sans-serif;
+  white-space: pre-wrap;
+  background: transparent;
+  border: none;
+  color: black;
+  resize: none;
+  font-size: 1.125rem;
+}
+.note textarea:focus {
+  outline: none;
+}
+.note textarea::placeholder {
+  color: black;
+}
